@@ -442,7 +442,8 @@ const tableaux = [
     technique: "Peinture à l'huile et à la spatule.",
     description: "Une jeune femme aux cheveux de feu s'abandonne à la douceur du renouveau. Sa robe aux teintes orangées et vertes se confond avec la nature qui l'entoure, dans un tourbillon de couleurs vives et généreuses. L'œuvre mêle peinture texturée et éléments en relief — perles, brindilles, feuilles séchées, grappes — donnant à la toile une dimension presque tactile et précieuse. Une célébration joyeuse de la vie et de la féminité.",
     prix: "350 €",
-    image: "tableau1.jpeg" // ← mettez ici le nom de votre fichier photo, ex: "tableau1.jpg"
+    image: "tableau1.jpeg", // ← mettez ici le nom de votre fichier photo, ex: "tableau1.jpg"
+    position: true
   },
   {
     titre: "Le champs de lavandes",
@@ -456,7 +457,8 @@ const tableaux = [
     technique: "Peinture à l'huile et à la spatule.",
     description: "Une femme élégante et sereine, drapée de blanc, trône dans un fauteuil en osier sculpté comme un soleil. Le sol ocre doré, les drapés rouges et le feuillage aux reflets bleus et verts créent un écrin chaleureux et exotique autour d'elle. À ses pieds, une jarre en terre cuite, des bols et un plateau tressé évoquent la douceur d'un quotidien méditerranéen. Une œuvre haute en couleur, empreinte de grâce et de dignité.",
     prix: "250 €",
-    image: "tableau3.jpeg"
+    image: "tableau3.jpeg",
+    position: true
   },
   {
     titre: "L'émotion",
@@ -471,7 +473,8 @@ const tableaux = [
 
 function imgHTML(t, cls) {
   if (t.image) {
-    return `<img src="${t.image}" alt="${t.titre}" class="${cls}" loading="lazy"/>`;
+    const topClass = t.position ? 'top' : '';
+     return `<img src="${t.image}" alt="${t.titre}" class="${cls} ${topClass}" loading="lazy"/>`;
   }
   return `<div class="${cls === 'card-img' ? 'card-img-placeholder' : 'modal-img-placeholder'}">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
