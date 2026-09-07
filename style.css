@@ -1,0 +1,558 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #faf9f7;
+  --bg2: #f3f1ed;
+  --ink: #1c1a17;
+  --ink2: #6b6560;
+  --accent: #8b6f47;
+  --accent2: #c4a882;
+  --border: #e0dbd3;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav a {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 7rem 2.5rem 5rem;
+  max-width: 800px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 1rem;
+  color: var(--ink2);
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+/* ── GALERIE ── */
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3rem;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px;
+  padding: 0 2.5rem 6rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: fadeUp 0.6s ease both;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  background: var(--bg2);
+  transition: transform 0.4s ease;
+}
+
+.card:nth-child(1) .card-img,
+.card:nth-child(3) .card-img {
+  object-position: center 20%;
+}
+
+.card:hover .card-img {
+  transform: scale(1.02);
+}
+
+/* placeholder si pas d'image */
+.card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--bg2) 0%, var(--border) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--ink2);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+.card-img-placeholder svg {
+  opacity: 0.3;
+  width: 40px;
+  height: 40px;
+}
+
+.card-body {
+  padding: 1.4rem 1.6rem 1.6rem;
+}
+
+.card-num {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 0.4rem;
+}
+
+.card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+
+.card-tech {
+  font-size: 0.82rem;
+  color: var(--ink2);
+  margin-bottom: 1rem;
+}
+
+.card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── PRIX PROMO (carte) ── */
+.price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.price-old {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--ink2);
+}
+
+.price-old-value {
+  text-decoration: line-through;
+}
+
+.price-promo {
+  display: inline-block;
+  background: none;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.price-new {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.btn-voir {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 0.4rem 1rem;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Jost", sans-serif;
+}
+.btn-voir:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(28, 26, 23, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--white);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+  background: var(--bg2);
+  object-position: center center;
+}
+
+.modal-img.top {
+  object-position: center 15%;
+}
+
+.modal-img-placeholder {
+  width: 100%;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--bg2), var(--border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink2);
+  font-size: 0.85rem;
+}
+
+.modal-info {
+  padding: 2.5rem;
+}
+
+.modal-num {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 0.6rem;
+}
+
+.modal-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.modal-tech {
+  font-size: 0.85rem;
+  color: var(--ink2);
+  margin-bottom: 1.5rem;
+}
+
+.modal-desc {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ── PRIX PROMO (modal) ── */
+.modal-price-old {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ink2);
+  margin-bottom: 0.3rem;
+}
+
+.modal-price-old-value {
+  text-decoration: line-through;
+}
+
+.modal-price-promo {
+  display: inline-block;
+  background: none;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.modal-price-new {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.btn-contact-modal {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-contact-modal:hover {
+  background: var(--accent);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s;
+}
+.modal-close:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+.modal-wrapper {
+  position: relative;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: var(--ink);
+  color: var(--white);
+  padding: 6rem 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-left {
+  max-width: 600px;
+  text-align: center;
+}
+
+.contact-left h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.contact-left h2 em {
+  font-style: italic;
+  color: var(--accent2);
+}
+.contact-left p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+}
+
+.contact-info {
+  margin-top: 2rem;
+}
+.contact-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.4rem;
+}
+.contact-info strong {
+  color: var(--accent2);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--ink2);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  header {
+    padding: 1rem 1.2rem;
+  }
+  nav {
+    display: none;
+  }
+  .hero {
+    padding: 4rem 1.2rem 3rem;
+  }
+  .section-label,
+  .gallery {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .modal {
+    grid-template-columns: 1fr;
+  }
+  .modal-img {
+    min-height: 220px;
+  }
+  .contact-section {
+    padding: 3rem 1.2rem;
+  }
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

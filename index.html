@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galerie — Mes Tableaux</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="#" class="logo">Atelier · ARKOUCHA</a>
+      <nav>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section>
+      <div class="hero">
+        <p class="hero-eyebrow">Peinture originale</p>
+        <h1>L'art dans<br />votre <em>intérieur</em></h1>
+        <p>
+          Chaque tableau est une œuvre unique, réalisée à la main. Retrouvez ici
+          mes créations disponibles à la vente.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section id="galerie">
+      <div class="section-label">Œuvres disponibles</div>
+      <div class="gallery" id="gallery-grid"></div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+      <div class="modal-wrapper">
+        <button class="modal-close" onclick="closeModalBtn()">✕</button>
+        <div class="modal" id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="contact-left">
+        <h2>Vous êtes<br /><em>intéressé ?</em></h2>
+        <p>
+          Pour toute question sur un tableau, une commande ou une visite de
+          l'atelier, contactez-moi directement.
+        </p>
+        <div class="contact-info">
+          <!-- ✏️ MODIFIEZ VOS COORDONNÉES ICI -->
+          <p>📞 <strong>07 49 36 82 18</strong></p>
+          <p>✉️ <strong>oleksandra.arkoucha@wanadoo.fr</strong></p>
+          <p>📍 <strong>Creutzwald 57150, France</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2025 Oleksandra Arkoucha — Tous droits réservés</span>
+      <span>Creutzwald 57150, France</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
